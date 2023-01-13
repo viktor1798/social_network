@@ -1,0 +1,26 @@
+
+.sidebar{
+  background-color: rgb(170, 239, 255);
+  flex: 1 1 20%;
+  height: 100vh;
+}
+.sidebar__nav{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px 0;
+}
+.sidebar__nav_item{
+  text-decoration: none;
+  color: rgb(42, 42, 49);
+
+  transition: color 0.3s linear;
+}
+.sidebar__nav_item:hover{
+  color: rgb(159, 159, 159);
+}
+.idebar__nav__block_item{
+  margin-bottom: 10px;
+
+}
+

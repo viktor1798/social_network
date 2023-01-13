@@ -1,0 +1,18 @@
+.main_content__profile{
+  padding: 50px;
+  display: flex;
+}
+.profile__description_user{
+  margin: 10px 0 0 30px;
+}
+
+.profile__img img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 10px 30px 0 0;
+}
+.profile__name_user{
+  color: rgb(42, 42, 49);
+ 
+}
