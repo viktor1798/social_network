@@ -1,0 +1,19 @@
+.my_post__posts{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+margin: 30px;
+}
+.posts__img_profile img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.posts__text{
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.posts__like span{
+    color: red;
+}
