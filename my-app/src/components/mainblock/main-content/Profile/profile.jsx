@@ -6,7 +6,7 @@ import ProfilePost from './profile-post/profilePost';
 
 const Profile = () => {
     return (
-        <div className="main-content__profile-block">
+        <div className="main_content__profile-block">
             <ProfileDescription />
             <ProfilePost />
         </div>

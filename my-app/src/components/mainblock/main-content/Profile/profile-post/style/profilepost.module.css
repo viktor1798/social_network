@@ -13,6 +13,7 @@
 .form__textarea_my_post{
     width: 300px;
     height: 100px;
+    resize: none;
 }
 .form__button_my_post{
     width: 200px;
