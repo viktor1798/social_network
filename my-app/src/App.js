@@ -1,13 +1,18 @@
 import './App.css';
 import Header from './components/header/header';
 import MainBlock from './components/mainblock/mainblock';
+import {BrowserRouter, Routes, Route,Switch} from "react-router-dom";
+
+
 
 const App = () => {
-  return (
-    <div className="container">
-      <Header />
-      <MainBlock />
-    </div>
+  return (  
+    <BrowserRouter>     
+     <div className="container">
+        <Header />
+        <MainBlock/>
+      </div>    
+    </BrowserRouter>
   );
 }
 
