@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/header/header';
 import MainBlock from './components/mainblock/mainblock';
-import {BrowserRouter, Routes, Route,Switch} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 
 
 
