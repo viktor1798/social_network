@@ -12,7 +12,7 @@ const Posts = (props) => {
             <div className={posts.posts__text}>
                 {props.message} 
                 <div className={posts.posts__like}>
-                    <span>1 лайк</span>
+                    <span>{props.likesCount} Мне нравится</span>
                 </div>
             </div>
         </div>
