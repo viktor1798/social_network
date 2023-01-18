@@ -10,7 +10,6 @@ const Dialogs = () => {
         <div className={dialogs.main_content__dialog_block}>
             <h2 className={dialogs.dialog_block}>Dialogs</h2>
             <div className={dialogs.dialog_block__content_dialog}>
-                
                 <DialogsNameUsers/>
                 <DialogMessage/>
             </div>
