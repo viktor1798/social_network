@@ -1,0 +1,16 @@
+.name_users__item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.name_users__item a{
+    text-decoration: none;
+    color: rgb(42, 42, 49);
+
+    transition: color 0.3s linear;
+}
+
+.name_users__item a:hover{
+    color: rgb(159, 159, 159);
+}

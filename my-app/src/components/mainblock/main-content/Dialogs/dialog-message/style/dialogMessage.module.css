@@ -4,31 +4,3 @@
 
     margin: 0;
 }
-.message__message_container_item{
-    display: flex;
-    align-items: center;
-    border: 3px solid rgb(48, 180, 184);
-    width: 400px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-.message__user_avatar{
-    padding: 10px;
-}
-.message__user_avatar img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-.message__form_write{
-    display: flex;
-    align-items: center;
-}
-.form_write__text_area{
-    width: 450px;
-    height: 65px;
-    resize: none;
-}
-.form_write__send_message{
-    padding: 10px;
-}
