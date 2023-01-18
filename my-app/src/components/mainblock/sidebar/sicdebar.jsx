@@ -14,10 +14,10 @@ const SideBar = () => {
         <aside className={side_bar.sidebar}>
             <nav className={side_bar.sidebar__nav}>
                 <div className={side_bar.sidebar__nav_item}>
-                    <NavLink to="/profile" style={({ isActive }) => isActive ? activeStyle : undefined}>Profile</NavLink>
+                    <NavLink to="/profile/" style={({ isActive }) => isActive ? activeStyle : undefined}>Profile</NavLink>
                 </div>
                 <div className={side_bar.sidebar__nav_item}>
-                    <NavLink to="/dialogs" style={({ isActive }) => isActive ? activeStyle : undefined}>Massege</NavLink>
+                    <NavLink to="/dialogs/" style={({ isActive }) => isActive ? activeStyle : undefined}>Massege</NavLink>
                 </div>
                 <div className={side_bar.sidebar__nav_item}>
                     <NavLink to="/friends" style={({ isActive }) => isActive ? activeStyle : undefined}>Friends</NavLink>

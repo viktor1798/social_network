@@ -1,0 +1,13 @@
+
+.message__form_write{
+    display: flex;
+    align-items: center;
+}
+.form_write__text_area{
+    width: 450px;
+    height: 65px;
+    resize: none;
+}
+.form_write__send_message{
+    padding: 10px;
+}

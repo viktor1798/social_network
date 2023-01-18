@@ -9,8 +9,8 @@ const MainContent = () => {
        
         <div className={main_content.main_content}>
             <Routes>
-                <Route path='/profile' element={<Profile />} />
-                <Route path='/dialogs' element={<Dialogs />} />
+                <Route path='/profile/*' element={<Profile />} />
+                <Route path='/dialogs/*' element={<Dialogs />} />
             </Routes>
         </div>
 )
