@@ -1,3 +1,5 @@
+import { rerenderAllTree } from "./reranderAllTree";
+
 let state = {
     dialogsPage: {
         messageData: [{ id: 1, message: 'Hi' },
@@ -27,7 +29,8 @@ export let addPost=(addNewPost)=>{
         message:addNewPost,
         likesCount:0,
     }
-    state.profilePage.postData.push(newPost)
+    state.profilePage.postData.push(newPost);
+    rerenderAllTree(state);
 }
 
 
