@@ -10,7 +10,7 @@ const MainContent = (props) => {
        
         <div className={main_content.main_content}>
             <Routes>
-                <Route path='/profile/*' element={<Profile postData={props.profilePage.postData}/>} />
+                <Route path='/profile/*' element={<Profile postData={props.profilePage.postData} addPost={props.addPost}/>} />
                 <Route path='/dialogs/*' element={<Dialogs dialogUserData={props.dialogsPage.dialogUserData} messageData={props.dialogsPage.messageData} />} />
             </Routes>
         </div>

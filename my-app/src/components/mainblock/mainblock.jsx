@@ -8,7 +8,7 @@ const MainBlock = (props) => {
     return (
         <main className={main_block.mainblock}>
             <SideBar/>
-            <MainContent profilePage={props.state.profilePage} dialogsPage={props.state.dialogsPage} />
+            <MainContent profilePage={props.state.profilePage} dialogsPage={props.state.dialogsPage} addPost={props.addPost}/>
         </main>
     )
 }

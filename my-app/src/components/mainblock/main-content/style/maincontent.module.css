@@ -3,5 +3,6 @@
   background-color: rgb(226, 240, 247);
   flex: 1 1 80%;
   height: 100vh;
+  min-height: 1000px;
 }
 

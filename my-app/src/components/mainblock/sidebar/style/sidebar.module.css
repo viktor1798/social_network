@@ -3,6 +3,7 @@
   background-color: rgb(170, 239, 255);
   flex: 1 1 20%;
   height: 100vh;
+  min-height: 1000px;
 }
 .sidebar__nav{
   display: flex;
