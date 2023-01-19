@@ -4,12 +4,8 @@ import profilepost from "./style/profilepost.module.css"
 
 
 
-const ProfilePost = () => {
-    let postData =[
-        {id:1, message:'Привет всем', likesCount:20},
-        {id:2, message:'Кто,Я?', likesCount:22}
-    ]
-    let postItem = postData.map(p=><Posts message ={p.message} likesCount={p.likesCount}/>)
+const ProfilePost = (props) => {
+    let postItem = props.postData.map(p=><Posts message ={p.message} likesCount={p.likesCount}/>)
     return (
         <div className={profilepost.main_content__my_post}>
             <h2 className={profilepost.my_post__title}>Posts</h2>

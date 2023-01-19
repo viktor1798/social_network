@@ -4,11 +4,11 @@ import ProfilePost from './profile-post/profilePost';
 
 
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className="main_content__profile-block">
             <ProfileDescription />
-            <ProfilePost />
+            <ProfilePost postData={props.postData} />
         </div>
     )
 }

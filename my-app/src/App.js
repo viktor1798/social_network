@@ -5,12 +5,12 @@ import {BrowserRouter} from "react-router-dom";
 
 
 
-const App = () => {
+const App = (props) => {
   return (  
     <BrowserRouter>     
      <div className="container">
         <Header />
-        <MainBlock/>
+        <MainBlock postData={props.postData} dialogUserData={props.dialogUserData} messageData={props.messageData}/>
       </div>    
     </BrowserRouter>
   );

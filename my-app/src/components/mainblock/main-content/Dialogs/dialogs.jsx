@@ -5,13 +5,13 @@ import dialogs from "./style/dialogs.module.css"
 
 
 
-const Dialogs = () => {
+const Dialogs = (props) => {
     return (
         <div className={dialogs.main_content__dialog_block}>
             <h2 className={dialogs.dialog_block}>Dialogs</h2>
             <div className={dialogs.dialog_block__content_dialog}>
-                <DialogsNameUsers/>
-                <DialogMessage/>
+                <DialogsNameUsers dialogUserData={props.dialogUserData}/>
+                <DialogMessage  messageData={props.messageData}/>
             </div>
         </div>
     )

@@ -3,15 +3,8 @@ import Message from './message/Message';
 import dialogM from "./style/dialogMessage.module.css"
 import DialogMessageForm from './write-message-form/dialogMessageForm';
 
-const DialogMessage = () => {
-
-    let messageData = [
-        { id: 1, message: 'Hi' },
-        { id: 2, message: 'Go dota2' },
-        { id: 3, message: 'or go to run' },
-        { id: 4, message: 'FY' }
-    ]
-    let messageItem = messageData.map(m => <Message message={m.message} />)
+const DialogMessage = (props) => {
+    let messageItem = props.messageData.map(m => <Message message={m.message} />)
     return (
         <div className={dialogM.content_dialog__message}>
             <div className={dialogM.message_box}>
@@ -22,4 +15,4 @@ const DialogMessage = () => {
     )
 }
 
-export default DialogMessage;
+export default DialogMessage; 

@@ -4,11 +4,11 @@ import SideBar from './sidebar/sicdebar';
 import main_block from "./style/mainblok.module.css"
 
 
-const MainBlock = () => {
+const MainBlock = (props) => {
     return (
         <main className={main_block.mainblock}>
             <SideBar/>
-            <MainContent/>
+            <MainContent postData={props.postData} dialogUserData={props.dialogUserData} messageData={props.messageData}/>
         </main>
     )
 }
