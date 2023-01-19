@@ -5,12 +5,13 @@ import main_content from './style/maincontent.module.css';
 import { Route, Routes } from 'react-router-dom'
 
 const MainContent = (props) => {
+    debugger;
     return (
        
         <div className={main_content.main_content}>
             <Routes>
-                <Route path='/profile/*' element={<Profile postData={props.postData}/>} />
-                <Route path='/dialogs/*' element={<Dialogs dialogUserData={props.dialogUserData} messageData={props.messageData} />} />
+                <Route path='/profile/*' element={<Profile postData={props.profilePage.postData}/>} />
+                <Route path='/dialogs/*' element={<Dialogs dialogUserData={props.dialogsPage.dialogUserData} messageData={props.dialogsPage.messageData} />} />
             </Routes>
         </div>
 )

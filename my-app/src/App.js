@@ -10,7 +10,7 @@ const App = (props) => {
     <BrowserRouter>     
      <div className="container">
         <Header />
-        <MainBlock postData={props.postData} dialogUserData={props.dialogUserData} messageData={props.messageData}/>
+        <MainBlock state={props.state}/>
       </div>    
     </BrowserRouter>
   );
