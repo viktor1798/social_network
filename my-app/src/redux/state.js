@@ -1,5 +1,7 @@
-import { rerenderAllTree } from "./reranderAllTree";
+// import { rerenderAllTree } from "./reranderAllTree";
+let rerenderAllTree=()=>{
 
+}
 let state = {
     dialogsPage: {
         messageData: [{ id: 1, message: 'Hi' },
@@ -24,7 +26,6 @@ let state = {
         newTextInTexteraePost:' ',
     }
 }
-window.state=state;
 
 export let addPost = () => {
     let newPost = {
@@ -43,4 +44,13 @@ export let updateTextarea = (symbols) => {
 }
 debugger;
 
+export const callbackToIndex= (observer)=>{
+    rerenderAllTree = observer
+}
+
+
+
+
+
 export default state;
+
