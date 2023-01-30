@@ -10,13 +10,14 @@ const ProfilePost = (props) => {
     let newPost = React.createRef();
 
     let addingPost =()=>{
-        props.addPost();
+        props.dispatch({type:'ADD-POST'});
         newPost.current.value = '';
     }
 
     let newSymbols=()=>{
         let text = newPost.current.value;
-        props.updateTextarea(text);
+        props.dispatch({type:'TEXT-IN-TEXTAREA', symbols:text})
+        //props.updateTextarea(text);
 
     }
     return (

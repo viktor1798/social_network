@@ -12,14 +12,17 @@ root.render(
   <React.StrictMode>
     <App 
       state={store.getState()} 
-      addPost={store.addPost.bind(store)} 
-      updateTextarea={store.updateTextarea.bind(store)}
-    />
+      dispatch={store.dispatch.bind(store)}
+/>
   </React.StrictMode>
 );
 }
+
+reranderAllTree();
 store.callbackToIndex(reranderAllTree);
-reranderAllTree(store.getState())
+
+
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

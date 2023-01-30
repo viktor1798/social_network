@@ -11,8 +11,7 @@ const MainBlock = (props) => {
             <MainContent 
                 profilePage={props.state.profilePage} 
                 dialogsPage={props.state.dialogsPage} 
-                addPost={props.addPost}
-                updateTextarea={props.updateTextarea}
+                dispatch={props.dispatch}
             />
         </main>
     )
