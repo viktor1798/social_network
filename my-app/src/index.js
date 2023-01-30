@@ -1,24 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import state, { callbackToIndex } from './redux/state';
+import store from './redux/state';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { addPost,updateTextarea } from './redux/state';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let reranderAllTree=(state)=>{
+let reranderAllTree=()=>{
 root.render(
-  
   <React.StrictMode>
-    <App state={state} addPost={addPost} updateTextarea={updateTextarea}/>
+    <App 
+      state={store.getState()} 
+      addPost={store.addPost.bind(store)} 
+      updateTextarea={store.updateTextarea.bind(store)}
+    />
   </React.StrictMode>
-); }
-
-callbackToIndex(reranderAllTree);
-
-reranderAllTree(state);
-
+);
+}
+store.callbackToIndex(reranderAllTree);
+reranderAllTree(store.getState())
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
