@@ -10,7 +10,7 @@ const App = (props) => {
     <BrowserRouter>     
      <div className="container">
         <Header />
-        <MainBlock state={props.state} addPost={props.addPost}/>
+        <MainBlock state={props.state} addPost={props.addPost} updateTextarea={props.updateTextarea} />
       </div>    
     </BrowserRouter>
   );
