@@ -1,4 +1,5 @@
 import React from 'react';
+import { addingPostActionCreater,newSymbolsActionCreater } from '../../../../../redux/state';
 
 import Posts from './posts/posts';
 import profilepost from "./style/profilepost.module.css"
@@ -10,15 +11,14 @@ const ProfilePost = (props) => {
     let newPost = React.createRef();
 
     let addingPost =()=>{
-        props.dispatch({type:'ADD-POST'});
+        props.dispatch(addingPostActionCreater());
         newPost.current.value = '';
     }
 
+    
     let newSymbols=()=>{
         let text = newPost.current.value;
-        props.dispatch({type:'TEXT-IN-TEXTAREA', symbols:text})
-        //props.updateTextarea(text);
-
+        props.dispatch(newSymbolsActionCreater(text));
     }
     return (
         <div className={profilepost.main_content__my_post}>

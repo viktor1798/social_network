@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD_POST';
+const TEXT_IN_TEXTAREA = 'TEXT_IN_TEXTAREA';
+
+
 let store = {
     _state: {
         dialogsPage: {
@@ -35,7 +39,7 @@ let store = {
     },
     dispatch(action) {
         switch (action.type) {
-            case 'ADD-POST':
+            case ADD_POST:
                 let newPost = {
                     id: 3,
                     message: this._state.profilePage.newTextInTexteraePost,
@@ -44,7 +48,7 @@ let store = {
                 this._state.profilePage.postData.push(newPost);
                 this.rerenderAllTree(this._state);
                 break;
-            case 'TEXT-IN-TEXTAREA':
+            case TEXT_IN_TEXTAREA:
                 this._state.profilePage.newTextInTexteraePost = action.symbols;
                 this.rerenderAllTree(this._state);
                 break;
@@ -55,5 +59,18 @@ let store = {
     }
 
 }
+
+export  const addingPostActionCreater= () =>{
+    return{
+        type:ADD_POST,
+    }
+}
+export const newSymbolsActionCreater = (text) =>{
+    return{
+        type:TEXT_IN_TEXTAREA,
+        symbols:text
+    }
+}
+
 
 export default store;
