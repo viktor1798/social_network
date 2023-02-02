@@ -7,7 +7,7 @@ const DialogMessage = (props) => {
     let messageItem = props.messageData.map(m => <Message message={m.message} />)
     return (
         <div className={dialogM.content_dialog__message}>
-            <div className={dialogM.message_box}>
+            <div className={dialogM.message_box} >
                 {messageItem}
             </div>
             <DialogMessageForm dispatch={props.dispatch}/>

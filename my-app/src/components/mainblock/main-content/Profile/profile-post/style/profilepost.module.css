@@ -7,7 +7,6 @@
 }
 .my_post__form{
     display: flex;
-    justify-content: start;
     flex-direction: column;
 }
 .form__textarea_my_post{

@@ -8,9 +8,8 @@ const DialogsNameUsers = (props) => {
     let dialogItem = props.dialogUserData.map(d=><DialogItem name={d.name} id={d.id}/>)
 
     return (
-        <div className={dialogNU.content_dialog__name_users}>
+        <div className={dialogNU.content_dialog__name_users} >
             {dialogItem}
-            
         </div>
 
 
