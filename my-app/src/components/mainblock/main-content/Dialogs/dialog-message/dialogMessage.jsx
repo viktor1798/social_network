@@ -10,7 +10,7 @@ const DialogMessage = (props) => {
             <div className={dialogM.message_box}>
                 {messageItem}
             </div>
-            <DialogMessageForm />
+            <DialogMessageForm dispatch={props.dispatch}/>
         </div>
     )
 }

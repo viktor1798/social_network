@@ -1,5 +1,5 @@
 import React from 'react';
-import { addingPostActionCreater,newSymbolsActionCreater } from '../../../../../redux/state';
+import { addingPostActionCreater,newSymbolsPostActionCreater } from '../../../../../redux/state';
 
 import Posts from './posts/posts';
 import profilepost from "./style/profilepost.module.css"
@@ -14,11 +14,10 @@ const ProfilePost = (props) => {
         props.dispatch(addingPostActionCreater());
         newPost.current.value = '';
     }
-
     
     let newSymbols=()=>{
         let text = newPost.current.value;
-        props.dispatch(newSymbolsActionCreater(text));
+        props.dispatch(newSymbolsPostActionCreater(text));
     }
     return (
         <div className={profilepost.main_content__my_post}>

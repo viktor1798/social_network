@@ -1,13 +1,29 @@
 import React from 'react';
+import { newSymbolsMessageActionCreater, sendMessageActionCreater } from '../../../../../../redux/state';
 import dialogMF from "./style/dialogMessageForm.module.css"
 
 
 
-const DialogMessageForm = () => {
+
+
+const DialogMessageForm = (props) => {
+    let newMessage = React.createRef();
+    
+    let sendMessage =()=>{
+        props.dispatch(sendMessageActionCreater());
+        newMessage.current.value = '';
+    }
+
+
+    let newSymbolsMessage=()=>{
+        let text = newMessage.current.value;
+        props.dispatch(newSymbolsMessageActionCreater(text));
+    }
+
     return (
         <div className={dialogMF.message__form_write}>
-            <textarea className={dialogMF.form_write__text_area} name="" id=""></textarea>
-            <button className={dialogMF.form_write__send_message}>Отправить</button>
+            <textarea className={dialogMF.form_write__text_area} name="" id="" ref={newMessage} onChange={newSymbolsMessage}></textarea>
+            <button className={dialogMF.form_write__send_message}onClick={sendMessage}>Отправить</button>
         </div>
 
     )

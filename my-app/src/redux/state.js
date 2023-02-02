@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD_POST';
 const TEXT_IN_TEXTAREA = 'TEXT_IN_TEXTAREA';
+const WORD_MESSAGE_IN_TEXTAREA = 'WORD_MESSAGE_IN_TEXTAREA';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 
 let store = {
@@ -17,6 +19,7 @@ let store = {
                 { id: 3, name: 'Kolya' },
                 { id: 4, name: 'Evdokia' },
             ],
+            wordMessageInTextareaMessage:'',
 
 
         },
@@ -41,7 +44,7 @@ let store = {
         switch (action.type) {
             case ADD_POST:
                 let newPost = {
-                    id: 3,
+                    id: 6,
                     message: this._state.profilePage.newTextInTexteraePost,
                     likesCount: 0,
                 }
@@ -49,7 +52,21 @@ let store = {
                 this.rerenderAllTree(this._state);
                 break;
             case TEXT_IN_TEXTAREA:
-                this._state.profilePage.newTextInTexteraePost = action.symbols;
+                this._state.profilePage.newTextInTexteraePost = action.symbolsPost;
+                this.rerenderAllTree(this._state);
+                break;
+            case SEND_MESSAGE:
+                
+                let newMessage = {
+                    id: 3,
+                    message: this._state.dialogsPage.wordMessageInTextareaMessage,
+                }
+
+                this._state.dialogsPage.messageData.push(newMessage);
+                this.rerenderAllTree(this._state);
+                break;
+            case WORD_MESSAGE_IN_TEXTAREA:
+                this._state.dialogsPage.wordMessageInTextareaMessage = action.symbolsMessage;
                 this.rerenderAllTree(this._state);
                 break;
 
@@ -60,15 +77,29 @@ let store = {
 
 }
 
+
+export  const sendMessageActionCreater= () =>{
+    return{
+        type:SEND_MESSAGE,
+    }
+}
+export const newSymbolsPostActionCreater = (text) =>{
+    return{
+        type:TEXT_IN_TEXTAREA,
+        symbolsPost:text,
+    }
+}
+
+
 export  const addingPostActionCreater= () =>{
     return{
         type:ADD_POST,
     }
 }
-export const newSymbolsActionCreater = (text) =>{
+export const newSymbolsMessageActionCreater = (text) =>{
     return{
-        type:TEXT_IN_TEXTAREA,
-        symbols:text
+        type:WORD_MESSAGE_IN_TEXTAREA,
+        symbolsMessage:text,
     }
 }
 
