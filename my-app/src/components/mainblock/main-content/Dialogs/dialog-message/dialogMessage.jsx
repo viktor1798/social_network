@@ -4,7 +4,7 @@ import dialogM from "./style/dialogMessage.module.css"
 import DialogMessageForm from './write-message-form/dialogMessageForm';
 
 const DialogMessage = (props) => {
-    let messageItem = props.messageData.map(m => <Message message={m.message} />)
+    let messageItem = props.messageData.map(m => <Message key={m.id} message={m.message} />)
     return (
         <div className={dialogM.content_dialog__message}>
             <div className={dialogM.message_box} >

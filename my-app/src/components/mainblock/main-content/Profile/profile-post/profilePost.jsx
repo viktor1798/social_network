@@ -7,7 +7,7 @@ import profilepost from "./style/profilepost.module.css"
 
 
 const ProfilePost = (props) => {
-    let postItem = props.postData.map(p=><Posts message ={p.message} likesCount={p.likesCount}/>);
+    let postItem = props.postData.map(p=><Posts key={p.id} message ={p.message} likesCount={p.likesCount}/>);
     let newPost = React.createRef();
 
     let addingPost =()=>{
