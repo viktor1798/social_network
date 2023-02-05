@@ -7,21 +7,20 @@ import DialogMessageForm from './dialogMessageForm';
 
 
 const DialogMessageFormContainer = (props) => {
-    let newMessage = React.createRef();
+
+    let state = props.store.getState();
     
     let sendMessage =()=>{
-        props.dispatch(sendMessageActionCreater());
-        newMessage.current.value = '';
+        props.store.dispatch(sendMessageActionCreater());
     }
 
 
-    let newSymbolsMessage=()=>{
-        let text = newMessage.current.value;
-        props.dispatch(newSymbolsMessageActionCreater(text));
+    let newSymbolsMessage=(text)=>{
+        props.store.dispatch(newSymbolsMessageActionCreater(text));
     }
 
     return (
-        <DialogMessageForm />
+        <DialogMessageForm sandingMassege={sendMessage} newSymbl={newSymbolsMessage} state={state}/>
     )
 }
 

@@ -10,8 +10,8 @@ const Dialogs = (props) => {
         <div className={dialogs.main_content__dialog_block}>
             <h2 className={dialogs.dialog_block}>Dialogs</h2>
             <div className={dialogs.dialog_block__content_dialog}>
-                <DialogsNameUsers dialogUserData={props.dialogUserData}/>
-                <DialogMessage  messageData={props.messageData} dispatch={props.dispatch}/>
+                <DialogsNameUsers state={props.store.getState()}/>
+                <DialogMessage  store={props.store}/>
             </div>
         </div>
     )
