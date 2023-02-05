@@ -1,5 +1,5 @@
 import React from 'react';
-import { newSymbolsMessageActionCreater, sendMessageActionCreater } from '../../../../../../redux/state';
+import { newSymbolsMessageActionCreater, sendMessageActionCreater } from '../../../../../../redux/dialogReduser';
 import dialogMF from "./style/dialogMessageForm.module.css"
 
 

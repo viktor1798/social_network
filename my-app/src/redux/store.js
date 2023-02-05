@@ -1,10 +1,10 @@
 import dialogReduser from "./dialogReduser";
 import profileReduser from "./profileReduser";
 
-const ADD_POST = 'ADD_POST';
-const TEXT_IN_TEXTAREA = 'TEXT_IN_TEXTAREA';
-const WORD_MESSAGE_IN_TEXTAREA = 'WORD_MESSAGE_IN_TEXTAREA';
-const SEND_MESSAGE = 'SEND_MESSAGE';
+// const ADD_POST = 'ADD_POST';
+// const TEXT_IN_TEXTAREA = 'TEXT_IN_TEXTAREA';
+// const WORD_MESSAGE_IN_TEXTAREA = 'WORD_MESSAGE_IN_TEXTAREA';
+// const SEND_MESSAGE = 'SEND_MESSAGE';
 
 
 let store = {
@@ -54,30 +54,30 @@ let store = {
 }
 
 
-export const sendMessageActionCreater = () => {
-    return {
-        type: SEND_MESSAGE,
-    }
-}
-export const newSymbolsPostActionCreater = (text) => {
-    return {
-        type: TEXT_IN_TEXTAREA,
-        symbolsPost: text,
-    }
-}
+// export const sendMessageActionCreater = () => {
+//     return {
+//         type: SEND_MESSAGE,
+//     }
+// }
+// export const newSymbolsPostActionCreater = (text) => {
+//     return {
+//         type: TEXT_IN_TEXTAREA,
+//         symbolsPost: text,
+//     }
+// }
 
 
-export const addingPostActionCreater = () => {
-    return {
-        type: ADD_POST,
-    }
-}
-export const newSymbolsMessageActionCreater = (text) => {
-    return {
-        type: WORD_MESSAGE_IN_TEXTAREA,
-        symbolsMessage: text,
-    }
-}
+// export const addingPostActionCreater = () => {
+//     return {
+//         type: ADD_POST,
+//     }
+// }
+// export const newSymbolsMessageActionCreater = (text) => {
+//     return {
+//         type: WORD_MESSAGE_IN_TEXTAREA,
+//         symbolsMessage: text,
+//     }
+// }
 
 
 export default store;
