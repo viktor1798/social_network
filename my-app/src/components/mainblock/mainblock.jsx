@@ -9,9 +9,7 @@ const MainBlock = (props) => {
         <main className={main_block.mainblock}>
             <SideBar/>
             <MainContent 
-                profilePage={props.state.profilePage} 
-                dialogsPage={props.state.dialogsPage} 
-                dispatch={props.dispatch}
+                store={props.store} 
             />
         </main>
     )

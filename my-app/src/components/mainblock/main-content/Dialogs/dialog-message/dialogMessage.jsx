@@ -1,7 +1,7 @@
 import React from 'react';
 import Message from './message/Message';
 import dialogM from "./style/dialogMessage.module.css"
-import DialogMessageForm from './write-message-form/dialogMessageForm';
+import DialogMessageFormContainer from './write-message-form/dialogMessageFormContainer';
 
 const DialogMessage = (props) => {
     let messageItem = props.messageData.map(m => <Message key={m.id} message={m.message} />)
@@ -10,7 +10,7 @@ const DialogMessage = (props) => {
             <div className={dialogM.message_box} >
                 {messageItem}
             </div>
-            <DialogMessageForm dispatch={props.dispatch}/>
+            <DialogMessageFormContainer dispatch={props.dispatch}/>
         </div>
     )
 }

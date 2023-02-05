@@ -13,8 +13,9 @@ let reranderAllTree = () => {
     <BrowserRouter>
       <React.StrictMode>
         <App
-          state={store.getState()}
-          dispatch={store.dispatch.bind(store)} />
+          store={store}
+          // dispatch={store.dispatch.bind(store)} 
+          />
       </React.StrictMode>
     </BrowserRouter>
   );

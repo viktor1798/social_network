@@ -7,17 +7,17 @@ import profilepost from "./style/profilepost.module.css"
 
 
 const ProfilePost = (props) => {
-    let postItem = props.postData.map(p=><Posts key={p.id} message ={p.message} likesCount={p.likesCount}/>);
+    let postItem = props.state.profilePage.postData.map(p=><Posts key={p.id} message ={p.message} likesCount={p.likesCount}/>);
     let newPost = React.createRef();
 
     let addingPost =()=>{
-        props.dispatch(addingPostActionCreater());
+        props.addPost();
         newPost.current.value = '';
     }
     
     let newSymbols=()=>{
         let text = newPost.current.value;
-        props.dispatch(newSymbolsPostActionCreater(text));
+        props.newSymbl(text);
     }
     return (
         <div className={profilepost.main_content__my_post} >

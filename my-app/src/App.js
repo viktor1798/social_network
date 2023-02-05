@@ -9,8 +9,7 @@ const App = (props) => {
      <div className="container">
         <Header />
         <MainBlock 
-          state={props.state}
-          dispatch={props.dispatch}/>
+          store={props.store}/>
       </div>    
   );
 }
