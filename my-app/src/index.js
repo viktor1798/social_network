@@ -1,30 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import store from './redux/store';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import store from "./redux/store";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+// import { Provider } from 'react-redux'
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 let reranderAllTree = () => {
   root.render(
     <BrowserRouter>
       <React.StrictMode>
-        <App
-          store={store}
-          // dispatch={store.dispatch.bind(store)} 
-          />
+        {/* <Provider > */}
+          <App store={store}/>
+        {/* </Provider> */}
       </React.StrictMode>
     </BrowserRouter>
   );
-}
+};
 
 reranderAllTree();
 store.callbackToIndex(reranderAllTree);
-
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

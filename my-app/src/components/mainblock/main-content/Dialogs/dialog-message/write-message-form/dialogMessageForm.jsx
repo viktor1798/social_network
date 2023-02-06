@@ -1,5 +1,4 @@
 import React from 'react';
-import { newSymbolsMessageActionCreater, sendMessageActionCreater } from '../../../../../../redux/dialogReduser';
 import dialogMF from "./style/dialogMessageForm.module.css"
 
 
@@ -10,14 +9,14 @@ const DialogMessageForm = (props) => {
     let newMessage = React.createRef();
     
     let sendMessage =()=>{
-        props.dispatch(sendMessageActionCreater());
+        props.sandingMassege();
         newMessage.current.value = '';
     }
 
 
     let newSymbolsMessage=()=>{
         let text = newMessage.current.value;
-        props.dispatch(newSymbolsMessageActionCreater(text));
+        props.newSymbl(text);
     }
 
     return (

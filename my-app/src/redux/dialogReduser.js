@@ -24,7 +24,7 @@ const dialogReduser = (state = initialState, action) => {
         case SEND_MESSAGE:
 
         let newMessage = {
-            id: 3,
+            id: 6,
             message: state.wordMessageInTextareaMessage,
         }
 

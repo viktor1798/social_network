@@ -13,7 +13,7 @@ const ProfilePostContainer = (props) => {
     let addingPost =()=>{
         props.store.dispatch(addingPostActionCreater());
     }
-    debugger
+
     let newSymbols=(text)=>{
         props.store.dispatch(newSymbolsPostActionCreater(text));
     }
