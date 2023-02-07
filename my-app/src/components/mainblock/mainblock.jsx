@@ -4,13 +4,11 @@ import SideBar from './sidebar/sicdebar';
 import main_block from "./style/mainblok.module.css"
 
 
-const MainBlock = (props) => {
+const MainBlock = () => {
     return (
         <main className={main_block.mainblock}>
             <SideBar/>
-            <MainContent 
-                store={props.store} 
-            />
+            <MainContent />
         </main>
     )
 }

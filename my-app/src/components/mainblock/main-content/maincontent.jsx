@@ -9,8 +9,8 @@ const MainContent = (props) => {
        
         <div className={main_content.main_content}>
             <Routes>
-                <Route path='/profile/*' element={<Profile store={props.store}/>} />
-                <Route path='/dialogs/*' element={<Dialogs store={props.store} />} />
+                <Route path='/profile/*' element={<Profile />} />
+                <Route path='/dialogs/*' element={<Dialogs />} />
             </Routes>
         </div>
 )

@@ -4,12 +4,11 @@ import MainBlock from './components/mainblock/mainblock';
 
 
 
-const App = (props) => {
+const App = () => {
   return (       
      <div className="container">
         <Header />
-        <MainBlock 
-          store={props.store}/>
+        <MainBlock />
       </div>    
   );
 }

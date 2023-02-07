@@ -1,27 +1,27 @@
-import React from 'react';
 import { newSymbolsMessageActionCreater, sendMessageActionCreater } from '../../../../../../redux/dialogReduser';
+import { connect } from 'react-redux';
+
 import DialogMessageForm from './dialogMessageForm';
 
 
 
-
-
-const DialogMessageFormContainer = (props) => {
-
-    let state = props.store.getState();
-    
-    let sendMessage =()=>{
-        props.store.dispatch(sendMessageActionCreater());
+let mapStateToProps=(state)=>{
+    return{
+        dialogsPage:state.dialogsPage
     }
-
-
-    let newSymbolsMessage=(text)=>{
-        props.store.dispatch(newSymbolsMessageActionCreater(text));
-    }
-
-    return (
-        <DialogMessageForm sandingMassege={sendMessage} newSymbl={newSymbolsMessage} state={state}/>
-    )
 }
+let  mapDispatchToProps=(dispatch)=>{
+    return{
+        sandingMassege:()=>{
+            dispatch(sendMessageActionCreater());
+        },
+        newSymbl:(text)=>{
+            dispatch(newSymbolsMessageActionCreater(text))
+        }
+    }
+}
+
+
+let DialogMessageFormContainer = connect(mapStateToProps,mapDispatchToProps)(DialogMessageForm);
 
 export default DialogMessageFormContainer;

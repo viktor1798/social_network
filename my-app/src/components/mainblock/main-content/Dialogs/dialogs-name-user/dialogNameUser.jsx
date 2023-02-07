@@ -4,15 +4,14 @@ import DialogItem from './dialog-item/dialogItem';
 
 
 const DialogsNameUsers = (props) => {
-   
-    let dialogItem = props.state.dialogsPage.dialogUserData.map(d=><DialogItem key={d.id} name={d.name} id={d.id}/>)
+   let state =props.dialogsPage;
+
+    let dialogItem = state.dialogUserData.map(d=><DialogItem key={d.id} name={d.name} id={d.id}/>)
 
     return (
         <div className={dialogNU.content_dialog__name_users} >
             {dialogItem}
         </div>
-
-
     )
 }
 
