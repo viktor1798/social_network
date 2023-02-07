@@ -11,21 +11,23 @@ let initialState ={
 const profileReduser = (state=initialState, action) => {
     switch (action.type) {
             case ADD_POST:
-                let newPost = {
-                    id: 6,
-                    message: state.newTextInTexteraePost,
-                    likesCount: 0,
-                }
-                state.postData.push(newPost);
-                break;
+            let textBody = state.newTextInTexteraePost;
+                return{
+                ...state,
+                newTextInTexteraePost:'',
+                postData:[
+                    ...state.postData, {id:3, message:textBody,likesCount:0}
+                ]
+            }
+                
             case TEXT_IN_TEXTAREA:
-                state.newTextInTexteraePost = action.symbolsPost;
-                break;
+               return{
+                ...state,
+                newTextInTexteraePost:action.symbolsPost,
+               }
             default:
-                break;
+               return state;
     }
-
-    return state;
 }
 
 export const addingPostActionCreater = () => {

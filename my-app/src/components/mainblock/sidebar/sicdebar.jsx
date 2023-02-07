@@ -20,7 +20,7 @@ const SideBar = () => {
                     <NavLink to="/dialogs/" style={({ isActive }) => isActive ? activeStyle : undefined}>Massege</NavLink>
                 </div>
                 <div className={side_bar.sidebar__nav_item}>
-                    <NavLink to="/friends" style={({ isActive }) => isActive ? activeStyle : undefined}>Friends</NavLink>
+                    <NavLink to="/users" style={({ isActive }) => isActive ? activeStyle : undefined}>Users</NavLink>
 
                 </div>
             </nav>
