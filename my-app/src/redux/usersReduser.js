@@ -40,7 +40,7 @@ const usersReduser = (state=initialState, action) => {
             case SET_STATE:
                return{
                 ...state,
-                users:[...state.users,...action.usersItem]
+                users:[...action.usersItem]
                }
             default:
                return state;

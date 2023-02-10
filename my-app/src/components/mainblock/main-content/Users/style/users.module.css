@@ -4,9 +4,9 @@
     border-radius: 30px;
     border: 2px solid rgb(48, 180, 184);
     display: flex;
-    /* justify-content:center; */
+    justify-content:space-between;
     align-items: center;
-    gap: 220px;
+    gap: 180px;
 }
 
 .image_profile img{
