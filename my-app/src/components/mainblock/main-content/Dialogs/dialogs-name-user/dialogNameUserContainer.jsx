@@ -6,7 +6,6 @@ let mapStateToProps=(state)=>{
         dialogsPage:state.dialogPage
 
     }
-    debugger;
 }
 
 let  DialogsNameUsersContainer = connect(mapStateToProps)(DialogsNameUsers)

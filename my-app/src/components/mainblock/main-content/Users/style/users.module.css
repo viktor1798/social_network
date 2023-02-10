@@ -1,0 +1,42 @@
+.content{
+    padding: 15px;
+    margin: 15px;
+    border-radius: 30px;
+    border: 2px solid rgb(48, 180, 184);
+    display: flex;
+    /* justify-content:center; */
+    align-items: center;
+    gap: 220px;
+}
+
+.image_profile img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.button_profile{
+    
+    height: 30px;
+    border: 3px solid rgb(48, 180, 184);
+    border-radius: 30px;
+    width: 150px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  
+    transition: background 0.2s linear;
+}
+.button_profile:hover{
+    background-color: rgb(92, 182, 202);
+}
+.naming{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.name_profile{
+    font-size: 25spx;
+}
+.status_profile{
+    font-size: 15pz;
+}

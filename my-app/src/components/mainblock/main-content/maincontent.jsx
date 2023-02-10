@@ -3,7 +3,7 @@ import Dialogs from './Dialogs/dialogs';
 import Profile from './Profile/profile';
 import main_content from './style/maincontent.module.css';
 import { Route, Routes } from 'react-router-dom'
-import Users from './Users/users';
+import UsersContainer from './Users/usersContainer';
 
 const MainContent = () => {
     return (
@@ -12,7 +12,7 @@ const MainContent = () => {
             <Routes>
                 <Route path='/profile/*' element={<Profile />} />
                 <Route path='/dialogs/*' element={<Dialogs />} />
-                <Route path='/users/*' element={<Users />} />
+                <Route path='/users/*' element={<UsersContainer />} />
             </Routes>
         </div>
 )
