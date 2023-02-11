@@ -1,15 +1,15 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_STATE = 'SET_STATE';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT';
 
 
 let initialState ={
-    users:[
-        // { id: 1, followed: false, fullName: 'Kostya', status: 'pogoda top', location: { city: 'Minsk', country: 'Belarus' } },
-        // { id: 2, followed: true, fullName: 'Kirill', status: '+1', location: { city: 'Minsk', country: 'Belarus' } },
-        // { id: 3, followed: false, fullName: 'Alina', status: 'na samom dele pogoda tak sebe', location: { city: 'Minsk', country: 'Belarus' } },
-        // { id: 4, followed: true, fullName: 'Vanya', status: 'vozmoshno', location: { city: 'Minsk', country: 'Belarus' } }
-]
+    users:[],
+    pageSize:5,
+    totalUserCount:0,
+    currentPage:1,
 }
 
 const usersReduser = (state=initialState, action) => {
@@ -24,8 +24,6 @@ const usersReduser = (state=initialState, action) => {
                         return u;
                     })
                 }
-            
-                
             case UNFOLLOW:
                return{
                 ...state,
@@ -35,13 +33,24 @@ const usersReduser = (state=initialState, action) => {
                     }
                     return u;
                 })
-            }
-                
+            }                
             case SET_STATE:
                return{
                 ...state,
                 users:[...action.usersItem]
                }
+            case SET_CURRENT_PAGE:{
+                return{
+                    ...state,
+                    currentPage: action.currentPageItem
+                }
+            }
+            case SET_TOTAL_USER_COUNT:{
+                return{
+                    ...state,
+                    totalUserCount: action.totalCountItem
+                }
+            }
             default:
                return state;
     }
@@ -63,6 +72,19 @@ export const setUsersActionCreater = (users) => {
     return {
         type:SET_STATE,
         usersItem:users
+    }
+}
+export const setCurrentPageActionCreater = (currentPage) => {
+    return {
+        type:SET_CURRENT_PAGE,
+        currentPageItem:currentPage
+
+    }
+}
+export const setTotalCountActionCreater = (totalUserCount) => {
+    return {
+        type:SET_TOTAL_USER_COUNT,
+        totalCountItem:totalUserCount
     }
 }
 

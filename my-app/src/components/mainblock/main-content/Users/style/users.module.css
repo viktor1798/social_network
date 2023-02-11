@@ -35,8 +35,34 @@
     gap: 20px;
 }
 .name_profile{
-    font-size: 25spx;
+    font-size: 25px;
 }
 .status_profile{
-    font-size: 15pz;
+    font-size: 15px;
 }
+.selectedPage {
+    font-weight: bold;
+}
+
+
+.pages {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+.page{
+    border: 1px solid lightgray;
+    border-radius: 100%;
+    padding: 5px 10px;
+    margin:0 10px;
+    cursor: pointer;
+  }
+  /* .pages */
+   .current_page {
+    border: 2px solid gray;
+    font-weight: bold;
+    background-color: rgb(92, 182, 202);
+    margin:0 10px;
+    padding: 5px 10px;
+    border-radius: 100%;
+  }
