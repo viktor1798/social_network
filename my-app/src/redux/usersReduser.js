@@ -3,13 +3,15 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_STATE = 'SET_STATE';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT';
+const TOGGLE_FETHCING = 'TOGGLE_FETHCING';
 
 
 let initialState ={
     users:[],
-    pageSize:5,
     totalUserCount:0,
+    pageSize:5,
     currentPage:1,
+    isLoadingPage:false,
 }
 
 const usersReduser = (state=initialState, action) => {
@@ -51,6 +53,12 @@ const usersReduser = (state=initialState, action) => {
                     totalUserCount: action.totalCountItem
                 }
             }
+            case TOGGLE_FETHCING:{
+                return{
+                    ...state,
+                    isLoadingPage: action.isLoadingPage
+                }
+            }
             default:
                return state;
     }
@@ -85,6 +93,12 @@ export const setTotalCountActionCreater = (totalUserCount) => {
     return {
         type:SET_TOTAL_USER_COUNT,
         totalCountItem:totalUserCount
+    }
+}
+export const toogleIsFethcingActionCreater = (isLoadingPage) => {
+    return {
+        type:TOGGLE_FETHCING,
+        isLoadingPage
     }
 }
 

@@ -61,7 +61,7 @@
    .current_page {
     border: 2px solid gray;
     font-weight: bold;
-    background-color: rgb(92, 182, 202);
+    background-color: #5cb6ca;
     margin:0 10px;
     padding: 5px 10px;
     border-radius: 100%;
