@@ -66,3 +66,10 @@
     padding: 5px 10px;
     border-radius: 100%;
   }
+  .link{
+    text-decoration: none;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    color: rgb(42, 42, 49);
+  }

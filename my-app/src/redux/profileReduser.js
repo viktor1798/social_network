@@ -1,11 +1,13 @@
 const ADD_POST = 'ADD_POST';
 const TEXT_IN_TEXTAREA = 'TEXT_IN_TEXTAREA';
+const SET_PROFILE_USER = 'SET_PROFILE_USER';
 
 let initialState ={
     postData: [{ id: 1, message: 'Привет всем', likesCount: 20 },
     { id: 2, message: 'Кто,Я?', likesCount: 22 },
     ],
     newTextInTexteraePost: ' ',
+    profile:null
 }
 
 const profileReduser = (state=initialState, action) => {
@@ -25,6 +27,11 @@ const profileReduser = (state=initialState, action) => {
                 ...state,
                 newTextInTexteraePost:action.text,
                }
+            case SET_PROFILE_USER:
+               return{
+                ...state,
+                profile:action.profile,
+               }
             default:
                return state;
     }
@@ -39,6 +46,12 @@ export const newSymbol = (text) => {
     return {
         type: TEXT_IN_TEXTAREA,
         text,
+    }
+}
+export const setProfile = (profile) => {
+    return {
+        type: SET_PROFILE_USER,
+        profile,
     }
 }
 
