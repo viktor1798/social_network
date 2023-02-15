@@ -1,20 +1,8 @@
 import { connect } from 'react-redux';
-import { addingPostActionCreater,newSymbolsPostActionCreater } from '../../../../../redux/profileReduser';
+import { addPost,newSymbol } from '../../../../../redux/profileReduser';
 
 import ProfilePost from './profilePost';
 
-
-
-let mapDispatchToProps=(dispatch)=>{
-    return{
-        addPost:()=>{
-            dispatch(addingPostActionCreater());
-        },
-        newSymbl:(text)=>{
-            dispatch(newSymbolsPostActionCreater(text))
-        }
-    }
-}
 
 let mapStateToProps=(state)=>{
     return{
@@ -22,6 +10,6 @@ let mapStateToProps=(state)=>{
     }
 }
 
-let ProfilePostContainer = connect(mapStateToProps,mapDispatchToProps)(ProfilePost);
+let ProfilePostContainer = connect(mapStateToProps,{newSymbol,addPost})(ProfilePost);
 
 export default ProfilePostContainer;

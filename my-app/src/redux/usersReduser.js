@@ -39,18 +39,18 @@ const usersReduser = (state=initialState, action) => {
             case SET_STATE:
                return{
                 ...state,
-                users:[...action.usersItem]
+                users:[...action.users]
                }
             case SET_CURRENT_PAGE:{
                 return{
                     ...state,
-                    currentPage: action.currentPageItem
+                    currentPage: action.currentPage
                 }
             }
             case SET_TOTAL_USER_COUNT:{
                 return{
                     ...state,
-                    totalUserCount: action.totalCountItem
+                    totalUserCount: action.totalUserCount
                 }
             }
             case TOGGLE_FETHCING:{
@@ -64,38 +64,38 @@ const usersReduser = (state=initialState, action) => {
     }
 }
 
-export const followActionCreater = (userId) => {
+export const follow = (userId) => {
     return { 
         type: FOLLOW,
         userId 
     }
 }
-export const unfollowActionCreater = (userId) => {
+export const unfollow = (userId) => {
     return {
         type: UNFOLLOW,
         userId
     }
 }
-export const setUsersActionCreater = (users) => {
+export const setUsers = (users) => {
     return {
         type:SET_STATE,
-        usersItem:users
+        users
     }
 }
-export const setCurrentPageActionCreater = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
     return {
         type:SET_CURRENT_PAGE,
-        currentPageItem:currentPage
+        currentPage
 
     }
 }
-export const setTotalCountActionCreater = (totalUserCount) => {
+export const setTotalCount = (totalUserCount) => {
     return {
         type:SET_TOTAL_USER_COUNT,
-        totalCountItem:totalUserCount
+        totalUserCount
     }
 }
-export const toogleIsFethcingActionCreater = (isLoadingPage) => {
+export const toogleIsFethcing = (isLoadingPage) => {
     return {
         type:TOGGLE_FETHCING,
         isLoadingPage

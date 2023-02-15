@@ -23,22 +23,22 @@ const profileReduser = (state=initialState, action) => {
             case TEXT_IN_TEXTAREA:
                return{
                 ...state,
-                newTextInTexteraePost:action.symbolsPost,
+                newTextInTexteraePost:action.text,
                }
             default:
                return state;
     }
 }
 
-export const addingPostActionCreater = () => {
+export const addPost = () => {
     return {
         type: ADD_POST,
     }
 }
-export const newSymbolsPostActionCreater = (text) => {
+export const newSymbol = (text) => {
     return {
         type: TEXT_IN_TEXTAREA,
-        symbolsPost: text,
+        text,
     }
 }
 

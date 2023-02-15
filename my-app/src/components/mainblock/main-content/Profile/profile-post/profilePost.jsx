@@ -18,7 +18,7 @@ const ProfilePost = (props) => {
     
     let newSymbols=()=>{
         let text = newPost.current.value;
-        props.newSymbl(text);
+        props.newSymbol(text);
     }
     return (
         <div className={profilepost.main_content__my_post} >

@@ -8,21 +8,21 @@ import dialogMF from "./style/dialogMessageForm.module.css"
 const DialogMessageForm = (props) => {
     let newMessage = React.createRef();
     
-    let sendMessage =()=>{
-        props.sandingMassege();
+    let sendingMessage =()=>{
+        props.sendMessage();
         newMessage.current.value = '';
     }
 
 
-    let newSymbolsMessage=()=>{
+    let newSymbols=()=>{
         let text = newMessage.current.value;
-        props.newSymbl(text);
+        props.newSymbolsMessage(text);
     }
 
     return (
         <div className={dialogMF.message__form_write}>
-            <textarea className={dialogMF.form_write__text_area} name="" id="" ref={newMessage} onChange={newSymbolsMessage}></textarea>
-            <button className={dialogMF.form_write__send_message}onClick={sendMessage}>Отправить</button>
+            <textarea className={dialogMF.form_write__text_area} name="" id="" ref={newMessage} onChange={newSymbols}></textarea>
+            <button className={dialogMF.form_write__send_message}onClick={sendingMessage}>Отправить</button>
         </div>
 
     )

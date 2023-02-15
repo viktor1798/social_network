@@ -31,22 +31,22 @@ const dialogReduser = (state = initialState, action) => {
     case WORD_MESSAGE_IN_TEXTAREA:
       return {
         ...state,
-        wordMessageInTextareaMessage: action.symbolsMessage,
+        wordMessageInTextareaMessage: action.text,
       };
 
     default:
       return state;
   }
 };
-export const sendMessageActionCreater = () => {
+export const sendMessage = () => {
   return {
     type: SEND_MESSAGE,
   };
 };
-export const newSymbolsMessageActionCreater = (text) => {
+export const newSymbolsMessage = (text) => {
   return {
     type: WORD_MESSAGE_IN_TEXTAREA,
-    symbolsMessage: text,
+    text,
   };
 };
 
