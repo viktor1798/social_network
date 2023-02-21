@@ -10,7 +10,7 @@ const MainContent = () => {
        
         <div className={main_content.main_content}>
             <Routes>
-                <Route path='/profile/*' element={<ProfileContainer />} />
+                <Route path='/profile/:userId?' element={<ProfileContainer />} />
                 <Route path='/dialogs/*' element={<Dialogs />} />
                 <Route path='/users/*' element={<UsersContainer />} />
             </Routes>
