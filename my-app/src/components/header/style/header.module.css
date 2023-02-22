@@ -1,6 +1,9 @@
 .header{
   background-color: rgb(204, 238, 246);
   padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .header_logo{
   display: flex;
@@ -22,3 +25,7 @@
   height:50px;
 }
 
+.header_auth a{
+  color:black;
+  margin: 10px;
+}

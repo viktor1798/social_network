@@ -9,7 +9,6 @@ const Profile = (props) => {
     if(!props.profile){
         return <Preloader/>
       } 
-    debugger
     return (
         <div className="main_content__profile-block">
             <ProfileDescription profile={props.profile} />

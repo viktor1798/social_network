@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/header/header';
+import HeaderContainer from './components/header/headerContainer';
 import MainBlock from './components/mainblock/mainblock';
 
 
@@ -7,7 +7,7 @@ import MainBlock from './components/mainblock/mainblock';
 const App = () => {
   return (       
      <div className="container">
-        <Header />
+        <HeaderContainer />
         <MainBlock />
       </div>    
   );
