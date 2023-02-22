@@ -4,6 +4,7 @@ import defaultImg from "../../../../assets/usersdefault.png";
 import { createPages } from "../../../../utils/createPages";
 import Axios from "axios";
 import { NavLink } from "react-router-dom";
+import { usersAPI } from "../../../../api/api";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
@@ -31,17 +32,8 @@ const Users = (props) => {
               <button
                 className={user.button_profile}
                 onClick={() => {
-                  // props.unfollow(u.id);
-                  Axios.delete(
-                    `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                    { 
-                      withCredentials: true,
-                      headers:{
-                        'API-KEY':'53d0aeb3-4b9a-4a15-8fc3-134f293e1718'
-                      }
-                    }
-                  ).then(response=>{
-                    if(response.data.resultCode === 0){
+                  usersAPI.unfollow(u.id).then(data=>{
+                    if(data.resultCode === 0){
                       props.unfollow(u.id);
                     }
                   })
@@ -53,17 +45,8 @@ const Users = (props) => {
               <button
                 className={user.button_profile}
                 onClick={() => {
-                  // props.follow(u.id);
-                  Axios.post(
-                    `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},
-                    { 
-                      withCredentials: true,
-                      headers:{
-                        'API-KEY':'53d0aeb3-4b9a-4a15-8fc3-134f293e1718'
-                      }
-                    }
-                  ).then(response=>{
-                    if(response.data.resultCode === 0){
+                  usersAPI.follow(u.id).then(data=>{
+                    if(data.resultCode === 0){
                       props.follow(u.id);
                     }
                   })
