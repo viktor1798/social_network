@@ -15,7 +15,7 @@ import Preloader from "../../../common/preloader";
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.toogleIsFethcing(true);
-    Axios.get("https://social-network.samuraijs.com/api/1.0/users").then(
+    Axios.get("https://social-network.samuraijs.com/api/1.0/users",{withCredentials:true}).then(
       (response) => {
         this.props.toogleIsFethcing(false);
         this.props.setUsers(response.data.items);
@@ -27,7 +27,7 @@ class UsersContainer extends React.Component {
     this.props.setCurrentPage(numberPage);
     this.props.toogleIsFethcing(true);
     Axios.get(
-      `https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${this.props.pageSize}`
+      `https://social-network.samuraijs.com/api/1.0/users?page=${numberPage}&count=${this.props.pageSize}`,{withCredentials:true}
     ).then((response) => {
       this.props.toogleIsFethcing(false);
       this.props.setUsers(response.data.items);
