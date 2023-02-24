@@ -1,15 +1,16 @@
-import { connect } from 'react-redux';
-import { addPost,newSymbol } from '../../../../../redux/profileReduser';
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { addPost, newSymbol } from "../../../../../redux/profileReduser";
 
-import ProfilePost from './profilePost';
+import ProfilePost from "./profilePost";
+
+let mapStateToProps = (state) => {
+  return {
+    profilePage: state.profilePage,
+  };
+};
 
 
-let mapStateToProps=(state)=>{
-    return{
-        profilePage:state.profilePage
-    }
-}
-
-let ProfilePostContainer = connect(mapStateToProps,{newSymbol,addPost})(ProfilePost);
-
-export default ProfilePostContainer;
+export default compose(connect(mapStateToProps, { newSymbol, addPost }))(
+  ProfilePost
+);

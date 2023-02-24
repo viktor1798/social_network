@@ -1,14 +1,11 @@
-import { connect } from 'react-redux';
-import DialogMessage from './dialogMessage';
+import { connect } from "react-redux";
+import { compose } from "redux";
+import DialogMessage from "./dialogMessage";
 
+let mapStateToProps = (state) => {
+  return {
+    dialogsPage: state.dialogPage,
+  };
+};
 
-let mapStateToProps=(state)=>{
-    return{
-        dialogsPage:state.dialogPage,
-    }
-}
-
-
-let DialogMessageContainer = connect(mapStateToProps)(DialogMessage)
-
-export default DialogMessageContainer; 
+export default compose(connect(mapStateToProps))(DialogMessage);

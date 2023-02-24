@@ -2,6 +2,7 @@ import { newSymbolsMessage, sendMessage } from '../../../../../../redux/dialogRe
 import { connect } from 'react-redux';
 
 import DialogMessageForm from './dialogMessageForm';
+import { compose } from 'redux';
 
 
 
@@ -11,6 +12,4 @@ let mapStateToProps=(state)=>{
     }
 }
 
-let DialogMessageFormContainer = connect(mapStateToProps,{sendMessage,newSymbolsMessage})(DialogMessageForm);
-
-export default DialogMessageFormContainer;
+export default compose(connect(mapStateToProps,{sendMessage,newSymbolsMessage}))(DialogMessageForm);
