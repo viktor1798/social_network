@@ -3,13 +3,12 @@ import user from "./style/users.module.css";
 import defaultImg from "../../../../assets/usersdefault.png";
 import { createPages } from "../../../../utils/createPages";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../../../api/api";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
   let pages = [];
   createPages(pages, pagesCount, props.currentPage);
-debugger
+
   return (
     <div className={user.main_block}>
       {props.users.map((u) => (
@@ -29,32 +28,20 @@ debugger
           <div>
             {u.followed ? (
               <button
-                disabled={props.followProgress.some(id => id === u.id)}
                 className={user.button_profile}
+                disabled={props.followProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.toogleIsProgress(true, u.id);
-                  usersAPI.unfollow(u.id).then((data) => {
-                    if (data.resultCode === 0) {
-                      props.unfollow(u.id);
-                    }
-                  });
-                  props.toogleIsProgress(false, u.id);
+                  props.unfollowThunk(u.id);
                 }}
               >
                 Unfollow
               </button>
             ) : (
               <button
-              disabled={ props.followProgress.some(id => id === u.id)}
                 className={user.button_profile}
+                disabled={props.followProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.toogleIsProgress(true, u.id);
-                  usersAPI.follow(u.id).then((data) => {
-                    if (data.resultCode === 0) {
-                      props.follow(u.id);
-                    }
-                  });
-                  props.toogleIsProgress(false, u.id);
+                  props.followThunk(u.id);
                 }}
               >
                 Follow
@@ -62,9 +49,8 @@ debugger
             )}
           </div>
         </div>
-      
       ))}
-      
+
       <div className={user.pages}>
         {pages.map((page, index) => (
           <span
@@ -80,7 +66,6 @@ debugger
       </div>
     </div>
   );
-
 };
 
 export default Users;

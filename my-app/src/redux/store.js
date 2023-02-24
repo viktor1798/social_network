@@ -1,11 +1,6 @@
 import dialogReduser from "./dialogReduser";
 import profileReduser from "./profileReduser";
 
-// const ADD_POST = 'ADD_POST';
-// const TEXT_IN_TEXTAREA = 'TEXT_IN_TEXTAREA';
-// const WORD_MESSAGE_IN_TEXTAREA = 'WORD_MESSAGE_IN_TEXTAREA';
-// const SEND_MESSAGE = 'SEND_MESSAGE';
-
 
 let store = {
     _state: {

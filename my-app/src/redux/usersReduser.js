@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api";
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_STATE = "SET_STATE";
@@ -60,19 +62,19 @@ const usersReduser = (state = initialState, action) => {
         isLoadingPage: action.isLoadingPage,
       };
     }
-    
     case TOGGLE_PROGRESS: {
       return {
         ...state,
-        followingInProgress: action.isLoadingPage
-            ? [...state.followProgress, action.userId]
-            : state.followProgress.filter(id => id !== action.userId)
+        followProgress: action.isLoadingPage
+          ? [...state.followProgress, action.userId]
+          : state.followProgress.filter((id) => id !== action.userId),
       };
     }
     default:
       return state;
   }
 };
+
 export const follow = (userId) => {
   return {
     type: FOLLOW,
@@ -114,7 +116,40 @@ export const toogleIsProgress = (isLoadingPage, userId) => {
     type: TOGGLE_PROGRESS,
     isLoadingPage,
     userId,
+  };
+};
 
+export const getUsers = (currentNum, numberPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(setCurrentPage(currentNum));
+    dispatch(toogleIsFethcing(true));
+    usersAPI.getUsers(currentNum,numberPage, pageSize).then((data) => {
+      dispatch(toogleIsFethcing(false));
+      dispatch(setUsers(data.items));
+      dispatch(setTotalCount(data.totalCount));
+    });
+  };
+};
+export const followThunk = (userId) => {
+  return (dispatch) => {
+    dispatch(toogleIsProgress(true, userId));
+    usersAPI.follow(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(follow(userId));
+      }
+    });
+    dispatch(toogleIsProgress(false, userId));
+  };
+};
+export const unfollowThunk = (userId) => {
+  return (dispatch) => {
+    dispatch(toogleIsProgress(true, userId));
+    usersAPI.unfollow(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(unfollow(userId));
+      }
+    });
+    dispatch(toogleIsProgress(false, userId));
   };
 };
 

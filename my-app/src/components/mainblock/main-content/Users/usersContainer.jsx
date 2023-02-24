@@ -2,35 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   follow,
-  setUsers,
   unfollow,
-  setCurrentPage,
-  setTotalCount,
-  toogleIsFethcing,
   toogleIsProgress,
+  getUsers,
+  followThunk,
+  unfollowThunk,
 } from "../../../../redux/usersReduser";
 import Users from "./users";
 import Preloader from "../../../common/preloader";
-import { usersAPI } from "../../../../api/api";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.toogleIsFethcing(true);
-    usersAPI
-      .getUsers(this.props.numberPage, this.props.pageSize)
-      .then((data) => {
-        this.props.toogleIsFethcing(false);
-        this.props.setUsers(data.items);
-        this.props.setTotalCount(data.totalCount);
-      });
+    this.props.getUsers(this.props.numberPage, this.props.pageSize);
   }
-  onPageChenged = (numberPage) => {
-    this.props.setCurrentPage(numberPage);
-    this.props.toogleIsFethcing(true);
-    usersAPI.getUsers(numberPage, this.props.pageSize).then((data) => {
-      this.props.toogleIsFethcing(false);
-      this.props.setUsers(data.items);
-    });
+  onPageChenged = (currentNum) => {
+    this.props.getUsers(currentNum, this.props.pageSize);
   };
 
   render() {
@@ -39,6 +25,7 @@ class UsersContainer extends React.Component {
         {this.props.isLoadingPage ? <Preloader /> : null}
 
         <Users
+        
           users={this.props.users}
           pageSize={this.props.pageSize}
           totalUserCount={this.props.totalUserCount}
@@ -48,6 +35,8 @@ class UsersContainer extends React.Component {
           unfollow={this.props.unfollow}
           followProgress={this.props.followProgress}
           toogleIsProgress={this.props.toogleIsProgress}
+          followThunk={this.props.followThunk}
+          unfollowThunk={this.props.unfollowThunk}
         />
       </>
     );
@@ -68,9 +57,8 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   follow,
   unfollow,
-  setUsers,
-  setCurrentPage,
-  setTotalCount,
-  toogleIsFethcing,
   toogleIsProgress,
+  getUsers,
+  followThunk,
+  unfollowThunk,
 })(UsersContainer);
