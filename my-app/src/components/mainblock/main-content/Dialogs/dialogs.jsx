@@ -7,7 +7,6 @@ import dialogs from "./style/dialogs.module.css"
 
 
 const Dialogs = (props) => {
-    if(!props.isAuth) return <Navigate to='/login'/>
     return (
         <div className={dialogs.main_content__dialog_block}>
             <h2 className={dialogs.dialog_block}>Dialogs</h2>

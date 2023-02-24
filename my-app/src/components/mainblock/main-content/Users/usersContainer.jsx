@@ -11,6 +11,7 @@ import {
 import Users from "./users";
 import Preloader from "../../../common/preloader";
 import { Navigate } from 'react-router-dom';
+import { withAuthRedirect } from "../../../../hoc/withAuthRedirect";
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.numberPage, this.props.pageSize);
@@ -20,7 +21,6 @@ class UsersContainer extends React.Component {
   };
 
   render() {
-    if (!this.props.isAuth) return <Navigate to='/login'/>
     return (
       <>
         {this.props.isLoadingPage ? <Preloader /> : null}
@@ -31,6 +31,9 @@ class UsersContainer extends React.Component {
   }
 }
 
+
+let AuthRedirectComponent = withAuthRedirect(UsersContainer)
+
 const mapStateToProps = (state) => {
   return {
     users: state.usersPage.users,
@@ -39,7 +42,6 @@ const mapStateToProps = (state) => {
     currentPage: state.usersPage.currentPage,
     isLoadingPage: state.usersPage.isLoadingPage,
     followProgress: state.usersPage.followProgress,
-    isAuth: state.auth.isAuth,
   };
 };
 
@@ -50,4 +52,4 @@ export default connect(mapStateToProps, {
   getUsers,
   followThunk,
   unfollowThunk,
-})(UsersContainer);
+})(AuthRedirectComponent);
