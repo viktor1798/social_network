@@ -10,7 +10,7 @@ import {
 } from "../../../../redux/usersReduser";
 import Users from "./users";
 import Preloader from "../../../common/preloader";
-
+import { Navigate } from 'react-router-dom';
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.numberPage, this.props.pageSize);
@@ -20,24 +20,12 @@ class UsersContainer extends React.Component {
   };
 
   render() {
+    if (!this.props.isAuth) return <Navigate to='/login'/>
     return (
       <>
         {this.props.isLoadingPage ? <Preloader /> : null}
 
-        <Users
-        
-          users={this.props.users}
-          pageSize={this.props.pageSize}
-          totalUserCount={this.props.totalUserCount}
-          currentPage={this.props.currentPage}
-          onPageChenged={this.onPageChenged}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-          followProgress={this.props.followProgress}
-          toogleIsProgress={this.props.toogleIsProgress}
-          followThunk={this.props.followThunk}
-          unfollowThunk={this.props.unfollowThunk}
-        />
+        <Users {...this.props} />
       </>
     );
   }
@@ -51,6 +39,7 @@ const mapStateToProps = (state) => {
     currentPage: state.usersPage.currentPage,
     isLoadingPage: state.usersPage.isLoadingPage,
     followProgress: state.usersPage.followProgress,
+    isAuth: state.auth.isAuth,
   };
 };
 
