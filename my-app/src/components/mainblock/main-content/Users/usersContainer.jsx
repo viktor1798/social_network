@@ -7,6 +7,7 @@ import {
   setCurrentPage,
   setTotalCount,
   toogleIsFethcing,
+  toogleIsProgress,
 } from "../../../../redux/usersReduser";
 import Users from "./users";
 import Preloader from "../../../common/preloader";
@@ -15,16 +16,18 @@ import { usersAPI } from "../../../../api/api";
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.toogleIsFethcing(true);
-     usersAPI.getUsers(this.props.numberPage, this.props.pageSize).then(data=>{
-      this.props.toogleIsFethcing(false);
-      this.props.setUsers(data.items);
-      this.props.setTotalCount(data.totalCount);
-     })
-}
+    usersAPI
+      .getUsers(this.props.numberPage, this.props.pageSize)
+      .then((data) => {
+        this.props.toogleIsFethcing(false);
+        this.props.setUsers(data.items);
+        this.props.setTotalCount(data.totalCount);
+      });
+  }
   onPageChenged = (numberPage) => {
     this.props.setCurrentPage(numberPage);
     this.props.toogleIsFethcing(true);
-    usersAPI.getUsers(numberPage, this.props.pageSize).then(data=>{
+    usersAPI.getUsers(numberPage, this.props.pageSize).then((data) => {
       this.props.toogleIsFethcing(false);
       this.props.setUsers(data.items);
     });
@@ -43,6 +46,8 @@ class UsersContainer extends React.Component {
           onPageChenged={this.onPageChenged}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
+          followProgress={this.props.followProgress}
+          toogleIsProgress={this.props.toogleIsProgress}
         />
       </>
     );
@@ -56,6 +61,7 @@ const mapStateToProps = (state) => {
     totalUserCount: state.usersPage.totalUserCount,
     currentPage: state.usersPage.currentPage,
     isLoadingPage: state.usersPage.isLoadingPage,
+    followProgress: state.usersPage.followProgress,
   };
 };
 
@@ -66,4 +72,5 @@ export default connect(mapStateToProps, {
   setCurrentPage,
   setTotalCount,
   toogleIsFethcing,
+  toogleIsProgress,
 })(UsersContainer);

@@ -16,15 +16,14 @@ export const usersAPI = {
         return response.data;
       });
   },
-  follow(userId){
+  follow(userId) {
     return instance.post(`follow/${userId}`).then((response) => {
-        return response.data;
-      });
+      return response.data;
+    });
   },
-  unfollow(userId){
+  unfollow(userId) {
     return instance.delete(`follow/${userId}`).then((response) => {
-        return response.data;
-      });
-  }
-
+      return response.data;
+    });
+  },
 };
