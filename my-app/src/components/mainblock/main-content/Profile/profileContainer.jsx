@@ -29,7 +29,3 @@ export default compose(
   withAuthRedirect,
   connect(mapStateToProps, { getProfileUser })
 )(ProfileContainer);
-
-// let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
-
-// export default   connect(mapStateToProps, {getProfileUser}) (withRouter(AuthRedirectComponent));

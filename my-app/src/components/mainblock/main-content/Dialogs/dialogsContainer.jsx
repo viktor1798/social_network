@@ -12,7 +12,3 @@ let mapStateToProps = (state) => {
 let AuthRedirectComponent = withAuthRedirect(Dialogs);
 
 export default compose(connect(mapStateToProps))(AuthRedirectComponent);
-
-// let DialogsContainer = connect(mapStateToProps)(AuthRedirectComponent)
-
-// export default DialogsContainer;

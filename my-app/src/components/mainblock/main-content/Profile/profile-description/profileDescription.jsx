@@ -1,6 +1,7 @@
 import React from 'react';
 import description from './style/profiledescription.module.css'
 import defaultPImg from '../../../../../assets/profileDefault.jpg'
+import ProfileStatus from './profile-status/profileStatus';
 
 
 const ProfileDescription = (props) => {
@@ -12,9 +13,10 @@ const ProfileDescription = (props) => {
             </div>
             <div className={description.profile__description_user}>
                 <h1 className={description.profile__name_user}>{props.profile.fullName}</h1>
-                <div className={description.status_profile} ></div>
-            </div>
+                <ProfileStatus status={'Status'}/>
+            </div> 
         </div>
+        
     )
 }
 

@@ -23,4 +23,3 @@ export default compose(connect(mapStateToProps, { getAuthData }))(
   HeaderContainer
 );
 
-// export default connect(mapStateToProps, { getAuthData })(HeaderContainer);

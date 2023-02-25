@@ -10,8 +10,8 @@ import {
 } from "../../../../redux/usersReduser";
 import Users from "./users";
 import Preloader from "../../../common/preloader";
-import { Navigate } from 'react-router-dom';
 import { withAuthRedirect } from "../../../../hoc/withAuthRedirect";
+import { compose } from "redux";
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.numberPage, this.props.pageSize);
@@ -25,14 +25,11 @@ class UsersContainer extends React.Component {
       <>
         {this.props.isLoadingPage ? <Preloader /> : null}
 
-        <Users {...this.props} />
+        <Users {...this.props} onPageChenged={this.onPageChenged} />
       </>
     );
   }
 }
-
-
-let AuthRedirectComponent = withAuthRedirect(UsersContainer)
 
 const mapStateToProps = (state) => {
   return {
@@ -45,11 +42,14 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  toogleIsProgress,
-  getUsers,
-  followThunk,
-  unfollowThunk,
-})(AuthRedirectComponent);
+export default compose(
+  connect(mapStateToProps, {
+    follow,
+    unfollow,
+    toogleIsProgress,
+    getUsers,
+    followThunk,
+    unfollowThunk,
+  }),
+  withAuthRedirect
+)(UsersContainer);
