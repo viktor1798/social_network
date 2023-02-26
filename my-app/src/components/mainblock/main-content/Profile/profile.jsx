@@ -11,7 +11,7 @@ const Profile = (props) => {
       } 
     return (
         <div className="main_content__profile-block">
-            <ProfileDescription profile={props.profile} />
+            <ProfileDescription profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
             <ProfilePostContainer />
         </div>
     )
