@@ -11,13 +11,14 @@ const Login = (props) => {
   return (
     <div>
       <h1>Login</h1>
-      <LoginForm login={props.login} />
+      <LoginForm {...props} login={props.login} />
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
+ errorMessage:state.auth.errorMessage,
 });
 
 export default connect(mapStateToProps, {

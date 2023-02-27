@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { addPost, newSymbol } from "../../../../../redux/profileReduser";
+import { addPost} from "../../../../../redux/profileReduser";
 
 import ProfilePost from "./profilePost";
 
@@ -11,6 +11,6 @@ let mapStateToProps = (state) => {
 };
 
 
-export default compose(connect(mapStateToProps, { newSymbol, addPost }))(
+export default compose(connect(mapStateToProps, { addPost }))(
   ProfilePost
 );

@@ -1,4 +1,3 @@
-const WORD_MESSAGE_IN_TEXTAREA = "WORD_MESSAGE_IN_TEXTAREA";
 const SEND_MESSAGE = "SEND_MESSAGE";
 
 let initialState = {

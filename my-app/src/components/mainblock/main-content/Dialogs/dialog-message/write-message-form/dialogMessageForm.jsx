@@ -6,7 +6,6 @@ const DialogMessageForm = (props) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (value) => {
-    console.log(value.message);
     props.sendMessage(value.message);
   };
 

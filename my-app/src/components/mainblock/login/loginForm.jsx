@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 const LoginForm=(props)=>{
   const {
     register,
-    formState: { errors },
+//    formState: { errors },
     handleSubmit,
   } = useForm();
 
@@ -22,7 +22,7 @@ const LoginForm=(props)=>{
             {...register("email", { required: true })}
             id=""
           />
-          {errors.email && <div>Неверный емайл долдон!</div>}
+          {props.errorMessage.length>0 && <div>{props.errorMessage}</div>}
         </div>
         <div>
           <label>Password</label>
@@ -31,7 +31,7 @@ const LoginForm=(props)=>{
             {...register("password", { required: true })}
             id=""
           />
-          {errors.password && <div>Ты ебун?! Это не тот пароль!</div>}
+          {props.errorMessage.length>0 && <div>{props.errorMessage}</div>}
         </div>
         <div>
           <span>

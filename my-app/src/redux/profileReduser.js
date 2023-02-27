@@ -1,7 +1,6 @@
 import { profileAPI } from "../api/api";
 
 const ADD_POST = "ADD_POST";
-const TEXT_IN_TEXTAREA = "TEXT_IN_TEXTAREA";
 const SET_PROFILE_USER = "SET_PROFILE_USER";
 const SET_STATUS = "SET_STATUS";
 
@@ -43,12 +42,6 @@ export const addPost = (valueText) => {
   return {
     type: ADD_POST,
     valueText
-  };
-};
-export const newSymbol = (text) => {
-  return {
-    type: TEXT_IN_TEXTAREA,
-    text,
   };
 };
 export const setProfile = (profile) => {

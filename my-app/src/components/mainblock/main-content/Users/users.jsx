@@ -1,7 +1,6 @@
 import React from "react";
 import user from "./style/users.module.css";
 import defaultImg from "../../../../assets/usersdefault.png";
-import { createPages } from "../../../../utils/createPages";
 import { NavLink } from "react-router-dom";
 import Paginator from "./paginator/paginator";
 
