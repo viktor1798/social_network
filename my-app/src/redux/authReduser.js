@@ -45,7 +45,7 @@ export const errorMessage = (errorMessage) => {
 
 export const getAuthData = () => {
   return (dispatch) => {
-    AuthAPI.me().then((response) => {
+    return AuthAPI.me().then((response) => {
       if (response.data.resultCode === 0) {
         let { id, login, email } = response.data.data;
         dispatch(setUserAuthData(id, login, email, true));
