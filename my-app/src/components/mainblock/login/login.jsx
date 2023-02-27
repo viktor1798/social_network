@@ -1,55 +1,25 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { login } from "../../../redux/authReduser";
+import LoginForm from "./loginForm";
 
-const Login = () => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm({ mode: "onBlur" });
-
-  const onSubmit = (d) => {
-    alert(JSON.stringify(d));
-  };
+const Login = (props) => {
+  
+  if(props.isAuth) return <Navigate to={`/profile`}/>
 
   return (
     <div>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            {...register("email", { required: true })}
-            id=""
-          />
-          {errors.email && <div>Неверный емайл долдон!</div>}
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type="password"
-            {...register("password", { required: true })}
-            id=""
-          />
-          {errors.password && <div>Ты ебун?! Это не тот пароль!</div>}
-        </div>
-        <div>
-          <span>
-            <input
-              type="checkbox"
-              {...register("rememberMe", { required: true })}
-              id=""
-            />
-            Запомнить меня
-          </span>
-        </div>
-        <div>
-          <input type="submit" value="Войти" />
-        </div>
-      </form>
+      <LoginForm login={props.login} />
     </div>
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+});
+
+export default connect(mapStateToProps, {
+  login,
+})(Login);

@@ -11,7 +11,7 @@ const Header=(props)=>{
           <p className={header.header_logo__title}> Social-Network.by</p>
         </div>
         <div className={header.header_auth}>
-          {props.isAuth?<div>{props.login}|<button>{props.logout} Poka text</button></div>:<NavLink to="/login">Login</NavLink>}
+          {props.isAuth?<div>{props.login}|<button onClick={props.logout}>Выйти нахуй!</button></div>:<NavLink to="/login">Login</NavLink>}
           </div>
       </header>
       
