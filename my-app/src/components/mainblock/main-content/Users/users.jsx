@@ -3,12 +3,9 @@ import user from "./style/users.module.css";
 import defaultImg from "../../../../assets/usersdefault.png";
 import { createPages } from "../../../../utils/createPages";
 import { NavLink } from "react-router-dom";
+import Paginator from "./paginator/paginator";
 
 const Users = (props) => {
-  let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
-  let pages = [];
-  createPages(pages, pagesCount, props.currentPage);
-
   return (
     <div className={user.main_block}>
       {props.users.map((u) => (
@@ -51,19 +48,12 @@ const Users = (props) => {
         </div>
       ))}
 
-      <div className={user.pages}>
-        {pages.map((page, index) => (
-          <span
-            key={index}
-            className={
-              props.currentPage === page ? user.current_page : user.page
-            }
-            onClick={() => props.onPageChenged(page)}
-          >
-            {page}
-          </span>
-        ))}
-      </div>
+      <Paginator
+        currentPage={props.currentPage}
+        onPageChenged={props.onPageChenged}
+        totalUserCount={props.totalUserCount}
+        pageSize={props.pageSize}
+      />
     </div>
   );
 };
