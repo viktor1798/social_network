@@ -1,4 +1,4 @@
-import { newSymbolsMessage, sendMessage } from '../../../../../../redux/dialogReduser';
+import {  sendMessage } from '../../../../../../redux/dialogReduser';
 import { connect } from 'react-redux';
 
 import DialogMessageForm from './dialogMessageForm';
@@ -12,4 +12,4 @@ let mapStateToProps=(state)=>{
     }
 }
 
-export default compose(connect(mapStateToProps,{sendMessage,newSymbolsMessage}))(DialogMessageForm);
+export default compose(connect(mapStateToProps,{sendMessage}))(DialogMessageForm);

@@ -15,39 +15,24 @@ let initialState = {
     { id: 3, name: "Kolya" },
     { id: 4, name: "Evdokia" },
   ],
-  wordMessageInTextareaMessage: "",
 };
 
 const dialogReduser = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      let textBody = state.wordMessageInTextareaMessage;
       return {
         ...state,
-        wordMessageInTextareaMessage: "",
-        messageData: [...state.messageData, { id: 6, message: textBody }],
-      };
-
-    case WORD_MESSAGE_IN_TEXTAREA:
-      return {
-        ...state,
-        wordMessageInTextareaMessage: action.text,
+        messageData: [...state.messageData, { id: 6, message: action.valueText }],
       };
 
     default:
       return state;
   }
 };
-export const sendMessage = () => {
+export const sendMessage = (valueText) => {
   return {
     type: SEND_MESSAGE,
+    valueText
   };
 };
-export const newSymbolsMessage = (text) => {
-  return {
-    type: WORD_MESSAGE_IN_TEXTAREA,
-    text,
-  };
-};
-
 export default dialogReduser;
