@@ -10,7 +10,6 @@ let initialState = {
     { id: 1, message: "Привет всем", likesCount: 20 },
     { id: 2, message: "Кто,Я?", likesCount: 22 },
   ],
-  newTextInTexteraePost: " ",
   profile: null,
   status: "",
 };
@@ -18,22 +17,14 @@ let initialState = {
 const profileReduser = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
-      let textBody = state.newTextInTexteraePost;
       return {
         ...state,
-        newTextInTexteraePost: "",
         postData: [
           ...state.postData,
-          { id: 3, message: textBody, likesCount: 0 },
+          { id: 3, message: action.valueText, likesCount: 0 },
         ],
       };
-
-    case TEXT_IN_TEXTAREA:
-      return {
-        ...state,
-        newTextInTexteraePost: action.text,
-      };
-    case SET_PROFILE_USER:
+  case SET_PROFILE_USER:
       return {
         ...state,
         profile: action.profile,
@@ -48,9 +39,10 @@ const profileReduser = (state = initialState, action) => {
   }
 };
 
-export const addPost = () => {
+export const addPost = (valueText) => {
   return {
     type: ADD_POST,
+    valueText
   };
 };
 export const newSymbol = (text) => {
