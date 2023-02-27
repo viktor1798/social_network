@@ -7,11 +7,11 @@ const Header=(props)=>{
     return(
         <header className={header.header}>
         <div className={header.header_logo}>
-          <img className={header.header_logo__img} src="https://i.pinimg.com/564x/d3/fa/fb/d3fafb300d2e764b18b3595a0fbc9569.jpg" alt="" />
+          {/* <img className={header.header_logo__img} src="https://i.pinimg.com/564x/d3/fa/fb/d3fafb300d2e764b18b3595a0fbc9569.jpg" alt="" /> */}
           <p className={header.header_logo__title}> Social-Network.by</p>
         </div>
         <div className={header.header_auth}>
-          {props.isAuth?props.login:<NavLink to="/login">Login</NavLink>}
+          {props.isAuth?<div>{props.login}|<button>{props.logout} Poka text</button></div>:<NavLink to="/login">Login</NavLink>}
           </div>
       </header>
       
