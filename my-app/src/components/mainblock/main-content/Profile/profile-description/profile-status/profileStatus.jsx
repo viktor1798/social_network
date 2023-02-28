@@ -1,59 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-class ProfileStatus extends React.Component {
-  state = {
-    editMode: false,
-    status: this.props.status,
-  };
-  activeEdit = () => {
-    this.setState({
-      editMode: true,
-    });
-  };
-  deactiveEdit = () => {
-    this.setState({
-      editMode: false,
-    });
-    this.props.updateStatus(this.state.status);
-  };
+const ProfileStatusH = (props) => {
+  let [editMode, setEditMode] = useState(false);
+  let [status, setStatus] = useState(props.status);
 
-  onStatusChange = (e) => {
-    this.setState({
-      status: e.currentTarget.value,
-    });
+  let activeEditStatus = () => {
+    setEditMode(true);
+  };
+  let deactiveEditStatus = () => {
+    setEditMode(false);
+    props.updateStatus(status);
+  };
+  useEffect(() => {
+    setStatus(props.status);
+  }, [props.status]);
+
+  let onStatusChange = (e) => {
+    setStatus(e.currentTarget.value)
   };
 
-  componentDidUpdate=(prevProps, prevState)=>{
-    if(prevProps.status !== this.props.status){
-      this.setState({
-        status:this.props.status
-      })
-    }
-  }
+  return (
+    <div>
+      {!editMode ? (
+        <div>
+          <span onClick={activeEditStatus}>{props.status || "-------"}</span>
+        </div>
+      ) : (
+        <div>
+          <input
+            onChange={onStatusChange}
+            autoFocus={true}
+            onBlur={deactiveEditStatus}
+            type="text"
+            value={status}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div>
-        {!this.state.editMode ? (
-          <div>
-            <span onClick={this.activeEdit}>
-              {this.props.status || "-------"}
-            </span>
-          </div>
-        ) : (
-          <div>
-            <input
-              onChange={this.onStatusChange}
-              autoFocus={true}
-              onBlur={this.deactiveEdit}
-              type="text"
-              value={this.state.status}
-            />
-          </div>
-        )}
-      </div>
-    );
-  }
-}
-
-export default ProfileStatus;
+export default ProfileStatusH;
