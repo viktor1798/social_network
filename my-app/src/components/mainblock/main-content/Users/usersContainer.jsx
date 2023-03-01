@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   follow,
@@ -13,24 +13,26 @@ import Preloader from "../../../common/preloader";
 import { withAuthRedirect } from "../../../../hoc/withAuthRedirect";
 import { compose } from "redux";
 import { currentPage, followProgress, isLoadingPage, pageSize, totalUserCount, users } from "../../../../redux/select/usersSelect";
-class UsersContainer extends React.Component {
-  componentDidMount() {
-    this.props.getUsers(this.props.numberPage, this.props.pageSize);
-  }
-  onPageChenged = (currentNum) => {
-    this.props.getUsers(currentNum, this.props.pageSize);
+
+
+const UsersContainer= (props)=>{
+  let onPageChenged = (currentNum) => {
+    props.getUsers(currentNum, props.pageSize);
   };
 
-  render() {
-    return (
-      <>
-        {this.props.isLoadingPage ? <Preloader /> : null}
+  useEffect(()=>{
+    props.getUsers(props.numberPage,props.pageSize);
+  },[])
 
-        <Users {...this.props} onPageChenged={this.onPageChenged} />
-      </>
-    );
-  }
+  return (
+    <>
+      {props.isLoadingPage ? <Preloader /> : null}
+
+      <Users {...props} onPageChenged={onPageChenged} />
+    </>
+  );
 }
+
 
 const mapStateToProps = (state) => {
   return {
@@ -53,4 +55,4 @@ export default compose(
     unfollowThunk,
   }),
   withAuthRedirect
-)(UsersContainer);
+)(React.memo(UsersContainer));

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import "./App.css";
@@ -8,28 +8,27 @@ import MainBlock from "./components/mainblock/mainblock";
 import { initializeApp } from "./redux/appReduser";
 import { withRouter } from "./utils/withRouter";
 
-class App extends React.Component {
-  componentDidMount(){
-    this.props.initializeApp() 
-  }
-  
-  
-  render(){
-    if(!this.props.initApp) return <Preloader/>
+const App = (props) => {
+  useEffect(() => {
+    props.initializeApp();
+  }, []);
 
-    return (
-          <div className="container">
-            <HeaderContainer />
-            <MainBlock />
-          </div>
-        )
-  }
-}
+  if(!props.initApp) return <Preloader/>
 
-const mapStateToProps=(state)=>({
-  initApp: state.app.initApp
-})
+  return (
+        <div className="container">
+          <HeaderContainer />
+          <MainBlock />
+        </div>
+      )
 
+};
 
-export default compose (
-  withRouter,connect( mapStateToProps,{initializeApp}))(App);
+const mapStateToProps = (state) => ({
+  initApp: state.app.initApp,
+});
+
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { initializeApp })
+)(App);
