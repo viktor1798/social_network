@@ -1,7 +1,7 @@
 import React from 'react';
 import description from './style/profiledescription.module.css'
 import defaultPImg from '../../../../../assets/profileDefault.jpg'
-import ProfileStatusH from './profile-status/profileStatus';
+import ProfileStatus from './profile-status/profileStatus';
 
 
 const ProfileDescription = (props) => {
@@ -13,7 +13,7 @@ const ProfileDescription = (props) => {
             </div>
             <div className={description.profile__description_user}>
                 <h1 className={description.profile__name_user}>{props.profile.fullName}</h1>
-                <ProfileStatusH status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
             </div> 
         </div>
         

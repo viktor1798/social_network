@@ -11,8 +11,8 @@ const MainContent = () => {
        
         <div className={main_content.main_content}>
             <Routes>
-                <Route path='/profile/:userId?' element={<ProfileContainer />} />
-                <Route path='/dialogs/*' element={<DialogsContainer />} />
+                <Route path='/profile/:userId?' element={<ProfileContainer/>} />
+                <Route path='/dialogs/*' element={<DialogsContainer/>} />
                 <Route path='/users/*' element={<UsersContainer />} />
                 <Route path="/login" element={<Login />} />
             </Routes>
